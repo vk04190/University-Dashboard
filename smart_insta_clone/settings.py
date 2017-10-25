@@ -76,12 +76,17 @@ WSGI_APPLICATION = 'smart_insta_clone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'smart_insta_db',
-        'USER': 'root',
-        'PASSWORD': 'toor',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        # for initial level we are using PyCharm Default Db that is sqllite3 DB
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        # code for connection MYSQL DB
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'smart_insta_db',
+        # 'USER': 'root',
+        # 'PASSWORD': 'toor',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306',
     }
 }
 

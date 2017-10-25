@@ -12,3 +12,4 @@ class user(models.Model):
     verified_phone_no = models.BooleanField(default=False)
     age = models.IntegerField(default=0)
     created_on = models.DateField(auto_now_add=True)
+    updated_on = models.DateField(auto_now=True)

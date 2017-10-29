@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+import uuid
 
 
 # after any changes in manage.py run this command to reflect change into database
@@ -11,22 +12,27 @@ from django.db import models
 # 'python manage.py migrate'
 
 
-# # Create your models here.
-# class user(models.Model):
-#     name = models.CharField(max_length=255)
-#     email = models.EmailField(max_length=200)
-#     phone = models.CharField(max_length=30)
-#     verified_phone_no = models.BooleanField(default=False)
-#     age = models.IntegerField(default=0)
-#     created_on = models.DateField(auto_now_add=True)
-#     updated_on = models.DateField(auto_now=True)
-
-
 # Signup UserModel Here
 class UserModel(models.Model):
     name = models.CharField(max_length=150)
     username = models.CharField(max_length=150)
     email = models.EmailField()
     password = models.CharField(max_length=400)
+    # these[created_on,updated_on] fields are auto creating
     created_on = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
+
+
+class SessionToken(models.Model):
+    user = models.ForeignKey(UserModel)
+    session_token = models.CharField(max_length=255)
+    last_request_on = models.DateField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    is_valid = models.BooleanField(default=True)
+
+    # it create session token
+    def create_token(self):
+        self.session_token = uuid.uuid4()
+
+
+

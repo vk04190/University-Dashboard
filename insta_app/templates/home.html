@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="shortcut icon" href="/static/Assets/logo.png" type="image/x-icon"/>
-        <title>Login To Inspire Me</title>
+        <title>Inspire Me - Powerful Inspiration Daily</title>
         <!--font-awsome linked here-->
         <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
         <!--cdn-->
@@ -124,10 +124,7 @@
     </head>
     <body>
         <div class="mainbody">
-            <div class="leftside">
-                <div class="post-txt tri-color">
-                    <h1>{{ status }}</h1>
-                </div>
+            <div class="">
                 <div class="w3-col-6">
                     <div class="w3-content w3-display-container">
                         <img class="mySlides " src="/static/Assets/quotes%20(1).jpg" style="width:100%">
@@ -157,46 +154,6 @@
                             }
                         </script>
                     </div>
-                </div>
-            </div>
-            <div class="rightside">
-                <div class="Content_wrapper">
-                    <h1 class="post-txt tri-color">Inspire Me <br>{{today}}</h1>
-                    <button class="pri-btn smart-txt"><i class="fa fa-facebook-official" aria-hidden="true"></i> login with facebook</button><br>
-                    <button class="pri-btn smart-txt"><i class="w3-text-red fa fa-google-plus" aria-hidden="true"></i> login with Google</button><br>
-
-                    <div class="line"></div>OR<div style="width: 50%" class="line"></div>
-
-
-                    </div>
-                    <div class="line" style="width: 50%" ></div>
-                    OR
-                    <div class="line"></div>
-
-                    <form method="post">
-                        <!--CSRF token to accept secure data acts like a seal to all the data that is sent through post requests-->
-                        {% csrf_token %}
-                        <fieldset>
-                            <legend CLASS="data-field" STYLE="padding: 10px;"> Login Here:</legend>
-                            <!--<div>-->
-                               <!--<label class="label-ele" for="name">Name: </label>-->
-                               <!--<input  class="data-field" id="name" type="text" name="name" value="">-->
-                            <!--</div>-->
-
-                              <div>
-                                  <label for="username">Username: </label>
-                                  <input class="data-field" id="username" type="text" name="username" value={{ username }}>
-                              </div>
-
-                              <div>
-                                  <label for="password">Password: </label>
-                                  <input class="data-field" id="password" type="password" name="password" value={{ password }}>
-                              </div>
-
-                              <input class="data-field" type="submit" value="Log In">
-
-                         </fieldset>
-                    </form>
                 </div>
             </div>
         </div>

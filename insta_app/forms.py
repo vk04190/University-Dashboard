@@ -9,3 +9,10 @@ class SignUpForm(forms.ModelForm):
     class Meta:
         model = UserModel
         fields = ['name', 'username', 'email', 'password']
+
+
+# signin class for validating userid and password
+class SignInForm(forms.ModelForm):
+    class Meta:
+        model = UserModel
+        fields = ['username', 'password']

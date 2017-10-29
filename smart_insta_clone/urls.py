@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from insta_app.views import signup_view
+from insta_app.views import signup_view, signin_view
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^login/', signin_view),
+    # always put signup view at in end
     url('', signup_view),
 ]

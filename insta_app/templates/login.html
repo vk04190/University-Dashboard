@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="shortcut icon" href="/static/Assets/logo.png" type="image/x-icon"/>
-        <title>Inspire Me - Powerful Inspiration Daily</title>
+        <title>Login To Inspire Me</title>
         <!--font-awsome linked here-->
         <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
         <!--cdn-->
@@ -125,6 +125,9 @@
     <body>
         <div class="mainbody">
             <div class="leftside">
+                <div class="post-txt tri-color">
+                    <h1>{{ sucess }}</h1>
+                </div>
                 <div class="w3-col-6">
                     <div class="w3-content w3-display-container">
                         <img class="mySlides " src="/static/Assets/quotes%20(1).jpg" style="width:100%">
@@ -174,25 +177,24 @@
                         <!--CSRF token to accept secure data acts like a seal to all the data that is sent through post requests-->
                         {% csrf_token %}
                         <fieldset>
-                            <legend CLASS="data-field" STYLE="padding: 10px;"> Create an account.:</legend>
+                            <legend CLASS="data-field" STYLE="padding: 10px;"> Login Here:</legend>
                             <!--<div>-->
                                <!--<label class="label-ele" for="name">Name: </label>-->
                                <!--<input  class="data-field" id="name" type="text" name="name" value="">-->
                             <!--</div>-->
-                            <div>
-                                <input  class="data-field" id="name" type="text" name="name" value="{{ name }}" placeholder="Name" autofocus>
-                            </div>
 
-                            <div>
-                               <input  class="data-field"  id="username" type="text" name="username" value="{{ username }}" placeholder="Username">
-                            </div>
-                            <div>
-                               <input  class="data-field"  id="email" type="email" name="email" value="{{ email }}" placeholder="Email">
-                            </div>
-                            <div>
-                               <input  class="data-field"  id="password" type="password" name="password" value="{{ password }}" placeholder="Password">
-                            </div>
-                               <input  class="data-field"  type="submit" value="Sign Up">
+                              <div>
+                                  <label for="username">Username: </label>
+                                  <input id="username" type="text" name="username" value={{ username }}>
+                              </div>
+
+                              <div>
+                                  <label for="password">Password: </label>
+                                  <input id="password" type="password" name="password" value={{ password }}>
+                              </div>
+
+                              <input type="submit" value="Log In">
+
                          </fieldset>
                     </form>
                 </div>

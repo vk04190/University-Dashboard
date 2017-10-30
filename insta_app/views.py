@@ -49,12 +49,11 @@ def login_view(request):
             if user:
                 # now check for password is true or not
                 if check_password(password, user.password):
-                    print 'password mating'
                     # if password is valid it will create a sesson token for each user
                     token = SessionToken(user=user)
                     token.create_token()
                     token.save()
-                    response = redirect('home/')
+                    response = redirect('/home/')
                     response.set_cookie(key='session_token', value=token.session_token)
                     print "User Is Valid Sign In Successful"
                     return response

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="shortcut icon" href="/static/Assets/logo.png" type="image/x-icon"/>
-        <title>Login To Inspire Me</title>
+        <title>Inspire Me - Powerful Inspiration Daily</title>
         <!--font-awsome linked here-->
         <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
         <!--cdn-->
@@ -38,6 +38,7 @@
             }
             .post-txt {
                 font-family: 'Fredericka the Great', cursive;
+                text-transform: uppercase;
             }
             .btn-txt {
                 font-family: 'Bungee Shade', cursive;
@@ -83,19 +84,18 @@
                 text-align: center;
             }
             .Content_wrapper{
-                width: 90%;
+                width: 80%;
+                border: 1px solid cyan;
                 background: white;
 
             }
             .pri-btn{
                 border: 2px solid teal;
+                border-radius: 25px;
                 color: teal;
-                background: white;
-                border-radius: 3px;
-                padding: 5px 20px 5px 20px;
+                padding: 2px 15px 2px 15px;
                 text-align: center;
                 font-size: 18px;
-                font-family: 'Roboto', sans-serif;
                 text-transform: capitalize;
                 margin-top: 10px;
             }
@@ -111,21 +111,20 @@
             }
             .data-field{
                 border: 1px solid cyan;
-                border-radius: 2px;
                 background: white;
-                font-family: 'Roboto', sans-serif;
                 padding: 2px 15px 2px 15px;
                 margin-top: 10px;
             }
-
-
+            .line{
+                border-top: 1px solid teal;
+                width: auto;
+                margin: 10px;
+            }
         </style>
     </head>
     <body>
         <div class="mainbody">
-            <h1 class="post-txt w3-center w3-xxxlarge tri-color">Inspire Me</h1>
-            <h6 class="smart-txt w3-center w3-medium w3-margin w3-padding tri-color w3-round {{color}}">{{status}}</h6>
-            <div class="leftside ">
+            <div class="leftside">
                 <div class="w3-col-6">
                     <div class="w3-content w3-display-container">
                         <img class="mySlides " src="/static/Assets/quotes%20(1).jpg" style="width:100%">
@@ -157,33 +156,55 @@
                     </div>
                 </div>
             </div>
-            <div class="rightside w3-padding">
-                <div class="Content_wrapper w3-round w3-padding-32">
+            <div class="rightside">
+                <div class="Content_wrapper">
+                    <h1 class="post-txt tri-color">Inspire Me <br>{{today}}</h1>
                     <button class="pri-btn smart-txt"><i class="fa fa-facebook-official" aria-hidden="true"></i> login with facebook</button><br>
                     <button class="pri-btn smart-txt"><i class="w3-text-red fa fa-google-plus" aria-hidden="true"></i> login with Google</button><br>
-                    <h2 class="post-txt w3-large w3-padding">OR</h2>
 
-                    <form action="/post_url" method="get">
+                    <div class="line"></div>OR<div style="width: 50%" class="line"></div>
+
+
+                    </div>
+                    <div class="line" style="width: 50%" ></div>
+                    OR
+                    <div class="line"></div>
+
+                    <form method="post">
                         <!--CSRF token to accept secure data acts like a seal to all the data that is sent through post requests-->
                         {% csrf_token %}
-                        <fieldset class="w3-margin data-field w3-padding-16">
-                            <legend class="w3-margin w3-padding smart-txt tri-color" style=" text-align: left"> Log in to Inspire Me. </legend>
-                        <input class="data-field w3-padding" type="text" placeholder="Username" name="username" value={{ username }}><br>
-                        <input class="data-field w3-padding" type="password" placeholder="Password" name="password" value={{ password }}><br>
-                        <input class="data-field pri-btn" type="submit" value="Log in">
-                        </fieldset>
+                        <fieldset>
+                            <legend CLASS="data-field" STYLE="padding: 10px;"> Create an account.:</legend>
+                            <!--<div>-->
+                               <!--<label class="label-ele" for="name">Name: </label>-->
+                               <!--<input  class="data-field" id="name" type="text" name="name" value="">-->
+                            <!--</div>-->
+                            <div>
+                                <input  class="data-field" id="name" type="text" name="name" value="{{ name }}" placeholder="Name" autofocus>
+                            </div>
+
+                            <div>
+                               <input  class="data-field"  id="username" type="text" name="username" value="{{ username }}" placeholder="Username">
+                            </div>
+                            <div>
+                               <input  class="data-field"  id="email" type="email" name="email" value="{{ email }}" placeholder="Email">
+                            </div>
+                            <div>
+                               <input  class="data-field"  id="password" type="password" name="password" value="{{ password }}" placeholder="Password">
+                            </div>
+                               <input  class="data-field"  type="submit" value="Sign Up">
+                         </fieldset>
                     </form>
-                    <h2 class="w3-large smart-txt w3-padding">Not a member? <a href="/" class="tri-color" >Sign Up</a></h2>
                 </div>
             </div>
         </div>
         <!--jquery file linked here-->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <!--W3JS FILE-->
-        <script src="JavaScript/w3.js"></script>
+        <script src="/static/JavaScript/w3.js"></script>
         <!--cdn-->
-        <script src="https://www.w3schools.com/lib/w3.js"></script>
+        <!--<script src="https://www.w3schools.com/lib/w3.js"></script>-->
         <!--my js  file-->
-        <script src="JavaScript/main.js" type="text/javascript"></script>
+        <script src="/static/JavaScript/main.js" type="text/javascript"></script>
     </body>
 </html>

@@ -3,15 +3,21 @@ from __future__ import unicode_literals
 from datetime import datetime
 # html pages rendering and redirecting pages
 from django.shortcuts import render, redirect
-from models import UserModel, SessionToken #PostModel
+from models import UserModel, SessionToken, PostModel
 # import signupform from form.py
-from forms import SignUpForm, SignInForm #PostForm
+from forms import SignUpForm, SignInForm, PostForm
 # importing library for password hashing and to check it
 from django.contrib.auth.hashers import make_password, check_password
+# to save post on online data store using Imagur API
+from imgurpython import ImgurClient
+
+
 # for using time zone and time related function
 from datetime import timedelta
 from django.utils import timezone
 
+from mysite.settings import BASE_DIR
+path = str(BASE_DIR + post.image.url)
 
 # Create your views here.
 def signup_view(request):
@@ -38,7 +44,7 @@ def signup_view(request):
     elif request.method == 'GET':
         form = SignUpForm()
         daily = datetime.now()
-        return render(request, 'index.html', {'form': form, 'color': 'w3-green', 'status': daily})
+        return render(request, 'index.html', {'form': form, 'color': 'w3-green', 'status': 'Welcome to Inspire Me. Today is', 'special': daily})
 
 
 def login_view(request):
@@ -60,9 +66,11 @@ def login_view(request):
                     response.set_cookie(key='session_token', value=token.session_token)
                     return response
                 else:
+                    # if password username is valid but password is not valid
                     wrong_password = "Password or Username is Invalid. Please try Again !!!"
                     return render(request, 'login.html', {'color': 'w3-red w3-large', 'status': wrong_password})
             else:
+                # if no such username found
                 wrong_password = "Username or Password  Is Invalid. Please try Again !!!"
                 return render(request, 'login.html', {'color': 'w3-red w3-large', 'status': wrong_password})
 
@@ -84,3 +92,28 @@ def check_validation(request):
             return session.user
     else:
         return None
+
+
+# post_vew controller
+def post_view(request):
+    # check wheather user is valid or not
+    user = check_validation(request)
+    if user:
+        # if user demand for post form
+        if request.METHOD == 'GET':
+            form = PostForm()
+            return render(request, 'post.html', {'form': form})
+        # if user send post data
+        elif request.method == 'POST':
+            form = PostForm(request.POST, request.FILES)
+            if form.is_valid():
+                image = form.cleaned_data.get('image')
+                caption = form.cleaned_data.get('caption')
+                # now save data into database
+                post = PostModel(user=user, image=image, caption=caption)
+                # save images into imgur YOUR_CLIENT_ID = b3b2ae95c944b54 YOUR_CLIENT_SECRET = f67276a5cad94b2bc5cd7699ba936aab995a579f
+                client = ImgurClient(b3b2ae95c944b54, f67276a5cad94b2bc5cd7699ba936aab995a579f)
+                post.image_url = client.upload_from_path(path, anon=True)['link']
+                post.save()
+    else:
+        return redirect('/login')

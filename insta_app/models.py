@@ -24,6 +24,7 @@ class UserModel(models.Model):
     updated_on = models.DateField(auto_now=True)
 
 
+# class model sessontoken for generationg sesson token
 class SessionToken(models.Model):
     user = models.ForeignKey(UserModel)
     session_token = models.CharField(max_length=255)
@@ -36,4 +37,11 @@ class SessionToken(models.Model):
         self.session_token = uuid.uuid4()
 
 
-
+# Post Model for handaling post data
+class PostModel(models.Model):
+    user = models.ForeignKey(UserModel)
+    image = models.FileField(upload_to='user_images')
+    image_url = models.CharField(max_length=255)
+    caption = models.CharField(max_length=240)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)

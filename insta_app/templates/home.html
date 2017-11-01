@@ -124,7 +124,15 @@
     </head>
     <body>
         <div class="mainbody">
-            <div class="">
+                <!--UPLOAD NEW POST-->
+
+        <h3>
+          Posted by: {{ post.user.username }}
+        </h3>
+        <img src="{{ post.image_url }}">
+        <span>
+          {{ post.caption }}
+        </span>
                 <div class="w3-col-6">
                     <div class="w3-content w3-display-container">
                         <img class="mySlides " src="/static/Assets/quotes%20(1).jpg" style="width:100%">
@@ -155,7 +163,6 @@
                         </script>
                     </div>
                 </div>
-            </div>
         </div>
         <!--jquery file linked here-->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

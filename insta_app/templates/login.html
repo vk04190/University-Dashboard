@@ -163,14 +163,14 @@
                     <button class="pri-btn smart-txt"><i class="w3-text-red fa fa-google-plus" aria-hidden="true"></i> login with Google</button><br>
                     <h2 class="post-txt w3-large w3-padding">OR</h2>
 
-                    <form action="/post" method="get">
+                    <form method="post">
                         <!--CSRF token to accept secure data acts like a seal to all the data that is sent through post requests-->
                         {% csrf_token %}
                         <fieldset class="w3-margin data-field w3-padding-16">
                             <legend class="w3-margin w3-padding smart-txt tri-color" style=" text-align: left"> Log in to Inspire Me. </legend>
-                        <input class="data-field w3-padding" type="text" placeholder="Username" name="username" value={{ username }}><br>
-                        <input class="data-field w3-padding" type="password" placeholder="Password" name="password" value={{ password }}><br>
-                        <input class="data-field pri-btn" type="submit" value="Log in">
+                            <input class="data-field w3-padding" id = "username" type="text" placeholder="Username" name="username" value={{ username }}><br>
+                            <input class="data-field w3-padding" id = "password" type="password" placeholder="Password" name="password" value={{ password }}><br>
+                            <input class="data-field pri-btn" type="submit" value="Log in">
                         </fieldset>
                     </form>
                     <h2 class="w3-large smart-txt w3-padding">Not a member? <a href="/" class="tri-color" >Sign Up</a></h2>

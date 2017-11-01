@@ -168,10 +168,10 @@
                         {% csrf_token %}
                         <fieldset class="w3-margin data-field w3-padding-16">
                             <legend class="w3-margin w3-padding smart-txt tri-color" style=" text-align: left"> Create a New Inspire Me Account. </legend>
-                            <input class="data-field w3-padding" type="text" placeholder="Name" value="{{ name }}"><br>
-                            <input class="data-field w3-padding" type="text" placeholder="Username" value="{{ username }}"><br>
-                            <input class="data-field w3-padding" type="email" placeholder="Email" value="{{ email }}"><br>
-                            <input class="data-field w3-padding" type="password" placeholder="Password" value="{{ password }}"><br>
+                            <input class="data-field w3-padding" id ="name" name="name" type="text" placeholder="Name" value="{{ name }}"><br>
+                            <input class="data-field w3-padding" id = "username" name="username" type="text" placeholder="Username" value="{{ username }}"><br>
+                            <input class="data-field w3-padding" id = "email" type="email" name="email" placeholder="Email" value="{{ email }}"><br>
+                            <input class="data-field w3-padding" id ="password" type="password" name="password" placeholder="Password" value="{{ password }}"><br>
                             <p class="smart-txt w3-small"><input type="checkbox" class="w3-padding"> By clicking "Sign Up" you are agreeing to our <a href="#" class="sec-color ">Terms of Use and Privacy Policy.</a></p>
                             <input class="data-field pri-btn" type="submit" value="Sign Up"></fieldset>
                     </form>

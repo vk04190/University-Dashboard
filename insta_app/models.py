@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+# for generating models import models from django.db
 from django.db import models
+# for creating hash password import uuid
 import uuid
 
 

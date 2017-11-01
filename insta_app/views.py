@@ -15,8 +15,10 @@ from django.utils import timezone
 
 # Create your views here.
 def signup_view(request):
+    # if user send data to server['POST' request]
     if request.method == 'POST':
         form = SignUpForm(request.POST)
+        print form
         # validating input data in form
         if form.is_valid():
             # clean data to actual data to store in db
@@ -27,15 +29,16 @@ def signup_view(request):
             # saving data to data base
             user = UserModel(name=name, username=username, email=email, password=make_password(password))
             user.save()
-            sucess = 'Hi ' + user.name + ' Your Account Created Successfully. Now Please Sign'
-            return render(request, 'login.html', {'status': sucess})
+            sucess = 'Hi ' + user.name + '. !!! Your Account Created Successfully. !!! Now Please Sign In.'
+            return render(request, 'login.html', {'color': 'w3-teal w3-large', 'status': sucess})
         else:
             form = SignUpForm()
-            return render(request, 'index.html', {'form': form})
+            error = 'Sign Up Details are Not Valid. Please Try Again ...'
+            return render(request, 'index.html', { 'form': form, 'color': 'w3-red', 'status':error })
     elif request.method == 'GET':
         form = SignUpForm()
         daily = datetime.now()
-        return render(request, 'index.html', {'form': form, 'today': daily})
+        return render(request, 'index.html', {'form': form, 'color': 'w3-green', 'status': daily})
 
 
 def login_view(request):
@@ -53,16 +56,15 @@ def login_view(request):
                     token = SessionToken(user=user)
                     token.create_token()
                     token.save()
-                    response = redirect('/home/')
+                    response = redirect('/home')
                     response.set_cookie(key='session_token', value=token.session_token)
-                    print "User Is Valid Sign In Successful"
                     return response
                 else:
-                    wrong_password = "Password Is Invalid. Please try Again !!!"
-                    return render(request, 'login.html', {'status': wrong_password})
+                    wrong_password = "Password or Username is Invalid. Please try Again !!!"
+                    return render(request, 'login.html', {'color': 'w3-red w3-large', 'status': wrong_password})
             else:
-                wrong_password = "Username Is Invalid. Please try Again !!!"
-                return render(request, 'login.html', {'status': wrong_password})
+                wrong_password = "Username or Password  Is Invalid. Please try Again !!!"
+                return render(request, 'login.html', {'color': 'w3-red w3-large', 'status': wrong_password})
 
     elif request.method == 'GET':
         form = SignInForm()

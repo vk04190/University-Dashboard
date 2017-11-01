@@ -19,9 +19,9 @@ from insta_app.views import signup_view, login_view, feed_view
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url('login/', login_view),
-    url('home/', feed_view),
+    url(r'^admin', admin.site.urls),
+    url(r'^login', login_view),
+    url(r'^home', feed_view),
     # always put signup view at in end
     url('', signup_view)
 ]

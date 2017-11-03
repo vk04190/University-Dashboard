@@ -116,7 +116,7 @@ def post_view(request):
                 post.save()
                 # save images into imgur my_CLIENT_ID = b3b2ae95c944b54 my_CLIENT_SECRET = f67276a5cad94b2bc5cd7699ba936aab995a579f
                 client = ImgurClient(My_CLIENT_ID, My_CLIENT_SECRET)
-                path = str(BASE_DIR + post.image.url)
+                path = str(BASE_DIR + '/' + post.image.url)
                 post.image_url = client.upload_from_path(path, anon=True)['link']
                 post.save()
                 msg = 'New Status "' + caption + '" Updated Successfully. You Can Upload More...'

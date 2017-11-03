@@ -10,10 +10,14 @@
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
         <!--w3css file-->
         <link rel="stylesheet" href="/static/StyleSheet/w3.css">
+        <!--for testing webpages without server-->
+        <link rel="stylesheet" href="w3.css">
         <!--cdn-->
         <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
         <!--Animate css connected-->
         <link rel="stylesheet" href="/static/StyleSheet/animate.css">
+        <!--for testing webpages-->
+        <link rel="stylesheet" href="animate.css">
         <!--cdn-->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">-->
        <!--main css file-->
@@ -91,7 +95,6 @@
             }
             .pri-btn{
                 border: 2px solid teal;
-                border-radius: 25px;
                 color: teal;
                 padding: 2px 15px 2px 15px;
                 text-align: center;
@@ -126,10 +129,16 @@
         <div class="mainbody">
                 <!--UPLOAD NEW POST-->
                 <form method="POST" enctype="multipart/form-data">
-                  {% csrf_token %}
-                    # post form
-                    {{ form }}
-                    <input class="data-field pri-btn w3-round" type="submit" value="Add a Picture">
+                        <!--CSRF token to accept secure data acts like a seal to all the data that is sent through post requests-->
+                        {% csrf_token %}
+                        # post form
+                        {{ form }}
+                        <fieldset class="w3-margin data-field w3-padding-16">
+                            <legend class="w3-margin w3-padding smart-txt tri-color" style=" text-align: left"> Share your Status... </legend>
+                            <input class="data-field w3-padding w3-btn" id = "file" type="file" name="file" placeholder="Upload Quotes Images" value="{{ file }}"><br>
+                            <input class="data-field w3-padding w3-btn" id ="caption" type="text" style="width: 300px; height: 200px;"  name="caption" placeholder="Status Quotes" value="{{ caption }}"><br>
+                            <input class="data-field pri-btn w3-btn" type="submit" value="POST STATUS">
+                        </fieldset>
                 </form>
                 <div class="w3-col-6">
                     <div class="w3-content w3-display-container">

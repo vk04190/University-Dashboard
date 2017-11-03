@@ -127,15 +127,16 @@
     </head>
     <body>
         <div class="mainbody">
+            <h1 class="post-txt w3-center w3-xxxlarge tri-color">Inspire Me</h1>
+            <h6 class="smart-txt w3-center w3-medium w3-margin w3-padding tri-color w3-round {{color}}">{{status}} {{special}}</h6>
+
                 <!--UPLOAD NEW POST-->
                 <form method="POST" enctype="multipart/form-data">
                         <!--CSRF token to accept secure data acts like a seal to all the data that is sent through post requests-->
                         {% csrf_token %}
-                        # post form
-                        {{ form }}
-                        <fieldset class="w3-margin data-field w3-padding-16">
-                            <legend class="w3-margin w3-padding smart-txt tri-color" style=" text-align: left"> Share your Status... </legend>
-                            <input class="data-field w3-padding w3-btn" id = "file" type="file" name="file" placeholder="Upload Quotes Images" value="{{ file }}"><br>
+                        <fieldset class="w3-margin data-field w3-padding w3-center">
+                            <legend class="w3-margin w3-padding smart-txt tri-color" style="text-align: left"> Share your Status Now... </legend>
+                            <input class="data-field w3-padding w3-btn" id = "file" type="file" name="image" placeholder="Upload Quotes Images" value="{{ image }}"><br>
                             <input class="data-field w3-padding w3-btn" id ="caption" type="text" style="width: 300px; height: 200px;"  name="caption" placeholder="Status Quotes" value="{{ caption }}"><br>
                             <input class="data-field pri-btn w3-btn" type="submit" value="POST STATUS">
                         </fieldset>

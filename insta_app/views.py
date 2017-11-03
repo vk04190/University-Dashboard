@@ -10,14 +10,16 @@ from forms import SignUpForm, SignInForm, PostForm
 from django.contrib.auth.hashers import make_password, check_password
 # to save post on online data store using Imagur API
 from imgurpython import ImgurClient
+# IMGUR client Id and secret
+My_CLIENT_ID = "b3b2ae95c944b54"
+My_CLIENT_SECRET = "f67276a5cad94b2bc5cd7699ba936aab995a579f"
 
 
 # for using time zone and time related function
 from datetime import timedelta
 from django.utils import timezone
 
-from mysite.settings import BASE_DIR
-path = str(BASE_DIR + post.image.url)
+from smart_insta_clone.settings import BASE_DIR
 
 # Create your views here.
 def signup_view(request):
@@ -100,7 +102,7 @@ def post_view(request):
     user = check_validation(request)
     if user:
         # if user demand for post form
-        if request.METHOD == 'GET':
+        if request.method == 'GET':
             form = PostForm()
             return render(request, 'post.html', {'form': form})
         # if user send post data
@@ -111,9 +113,17 @@ def post_view(request):
                 caption = form.cleaned_data.get('caption')
                 # now save data into database
                 post = PostModel(user=user, image=image, caption=caption)
-                # save images into imgur YOUR_CLIENT_ID = b3b2ae95c944b54 YOUR_CLIENT_SECRET = f67276a5cad94b2bc5cd7699ba936aab995a579f
-                client = ImgurClient(b3b2ae95c944b54, f67276a5cad94b2bc5cd7699ba936aab995a579f)
+                post.save()
+                # save images into imgur my_CLIENT_ID = b3b2ae95c944b54 my_CLIENT_SECRET = f67276a5cad94b2bc5cd7699ba936aab995a579f
+                client = ImgurClient(My_CLIENT_ID, My_CLIENT_SECRET)
+                path = str(BASE_DIR + post.image.url)
                 post.image_url = client.upload_from_path(path, anon=True)['link']
                 post.save()
+                msg = 'New Status "' + caption + '" Updated Successfully. You Can Upload More...'
+                return render(request, 'post.html', {'color': 'w3-green', 'status': msg})
+            else:
+                msg = 'Input Only Valid Image and Text. Please Try Again ... '
+                return render(request, 'post.html', {'color': 'w3-red', 'status': msg})
+
     else:
         return redirect('/login')

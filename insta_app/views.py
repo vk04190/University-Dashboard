@@ -25,24 +25,43 @@ from smart_insta_clone.settings import BASE_DIR
 def signup_view(request):
     # if user send data to server['POST' request]
     if request.method == 'POST':
+        # get the user post signup form details and clean data
         form = SignUpForm(request.POST)
-        print form
         # validating input data in form
         if form.is_valid():
             # clean data to actual data to store in db
             name = form.cleaned_data['name']
-            username = form.cleaned_data['username']
             email = form.cleaned_data['email']
+            username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            # saving data to data base
-            user = UserModel(name=name, username=username, email=email, password=make_password(password))
-            user.save()
-            sucess = 'Hi ' + user.name + '. !!! Your Account Created Successfully. !!! Now Please Sign In.'
-            return render(request, 'login.html', {'color': 'w3-teal w3-large', 'status': sucess})
+            # checking the different level of validation of data before save it into database
+            if len(name) > 2 and len(email) > 7:
+                # cheack wheather username at least 4 character
+                if len(username) > 3:
+                    # check wheather password must be atleast 5 character
+                    if len(password) > 4:
+                        # saving data to data base
+                        # make_password function used for hashing password and then save it into database
+                        user = UserModel(name=name, username=username, email=email, password=make_password(password))
+                        user.save()
+                        sucess = 'Hi ' + user.name + '. !!! Your Account Created Successfully. !!! Now Please Sign In.'
+                        return render(request, 'login.html', {'color': 'w3-teal w3-large', 'status': sucess})
+                    else:
+                        form = SignUpForm()
+                        error = 'Password Must be at least 5 characters long. Please Try a New Password.'
+                        return render(request, 'index.html', {'form': form, 'color': 'w3-red', 'status': error})
+                else:
+                    form = SignUpForm()
+                    error = 'Username Must be at least 4 characters long. Please Try a New Password.'
+                    return render(request, 'index.html', {'form': form, 'color': 'w3-red', 'status': error})
+            else:
+                form = SignUpForm()
+                error = 'Name Or Email Id is Not Valid. Please try again...'
+                return render(request, 'index.html', {'form': form, 'color': 'w3-red', 'status': error})
         else:
             form = SignUpForm()
             error = 'Sign Up Details are Not Valid. Please Try Again ...'
-            return render(request, 'index.html', { 'form': form, 'color': 'w3-red', 'status':error })
+            return render(request, 'index.html', { 'form': form, 'color': 'w3-red', 'status': error})
     elif request.method == 'GET':
         form = SignUpForm()
         daily = datetime.now()

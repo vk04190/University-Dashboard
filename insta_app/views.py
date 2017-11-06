@@ -102,7 +102,12 @@ def login_view(request):
 
 
 def feed_view(request):
-    return render(request, 'home.html')
+    user = check_validation(request)
+    if user:
+        posts = PostModel.objects.all().order_by('created_on')
+        return render(request, 'home.html', {'posts': posts})
+    else:
+        return redirect('/login')
 
 
 # For validating the session

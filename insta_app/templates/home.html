@@ -40,7 +40,6 @@
             }
             .post-txt {
                 font-family: 'Fredericka the Great', cursive;
-                text-transform: uppercase;
             }
             .btn-txt {
                 font-family: 'Bungee Shade', cursive;
@@ -86,18 +85,19 @@
                 text-align: center;
             }
             .Content_wrapper{
-                width: 80%;
-                border: 1px solid cyan;
+                width: 90%;
                 background: white;
 
             }
             .pri-btn{
                 border: 2px solid teal;
-                border-radius: 25px;
                 color: teal;
-                padding: 2px 15px 2px 15px;
+                background: white;
+                border-radius: 3px;
+                padding: 5px 20px 5px 20px;
                 text-align: center;
                 font-size: 18px;
+                font-family: 'Roboto', sans-serif;
                 text-transform: capitalize;
                 margin-top: 10px;
             }
@@ -113,61 +113,134 @@
             }
             .data-field{
                 border: 1px solid cyan;
+                border-radius: 2px;
                 background: white;
+                font-family: 'Roboto', sans-serif;
                 padding: 2px 15px 2px 15px;
                 margin-top: 10px;
             }
-            .line{
-                border-top: 1px solid teal;
-                width: auto;
-                margin: 10px;
+            .w3-bold{
+                font-weight: bold;
             }
+            .w3-bolder{
+                font-weight: bolder;
+            }
+
+
+
         </style>
     </head>
     <body>
-        <div class="mainbody">
-                <!--UPLOAD NEW POST-->
-            <a href="post"><input type="submit" class="data-field w3-btn pri-btn" value="Post Your Status Now ..."></a>
-
-        <h3>
-          Posted by: {{ post.user.username }}
-        </h3>
-        <img src="{{ post.image_url }}">
-        <span>
-          {{ post.caption }}
-        </span>
-                <div class="w3-col-6">
-                    <div class="w3-content w3-display-container">
-                        <img class="mySlides " src="/static/Assets/quotes%20(1).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(2).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(3).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(4).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(5).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(6).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(7).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(8).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(9).jpg" style="width:100%">
-                        <img class="mySlides" src="/static/Assets/quotes%20(10).jpg" style="width:100%">
-                        <script>
-                            var slideIndex = 0;
-                            carousel();
-
-                            function carousel() {
-                                var i;
-                                var x = document.getElementsByClassName("mySlides");
-                                for (i = 0; i < x.length; i++) {
-                                    x[i].style.display = "none";
-                                }
-                                slideIndex++;
-                                if (slideIndex > x.length) {slideIndex = 1}
-                                x[slideIndex-1].style.display = "block";
-                                setTimeout(carousel, 2000); // Change image every 2 seconds
-                            }
-                        </script>
+    <!--...............................code for header ...........................................-->
+        <!-- Navbar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-teal w3-card">
+                <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-large">Inspire Me</a>
+                <a href="#Quotes" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Popular Quotes</a>
+                <a href="#videos" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Inspirational videos</a>
+                <div class="w3-dropdown-hover w3-hide-small">
+                    <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="#Events" class="w3-bar-item w3-button">Upcoming Events</a>
+                        <a href="#Webinars" class="w3-bar-item w3-button">Webinars</a>
+                        <a href="#Seminar" class="w3-bar-item w3-button">Seminar</a>
                     </div>
                 </div>
+                <a href="login.html" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-sign-out"></i> Log Out</a>
+                <a href="#signin" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-user-circle-o"></i> Vivek Kumar</a>
+            </div>
         </div>
-        <!--jquery file linked here-->
+
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+            <a href="#home" class="w3-bar-item w3-button w3-padding-large">Inspire Me</a>
+            <a href="#Quotes" class="w3-bar-item w3-button w3-padding-large">Popular Quotes</a>
+            <a href="#videos" class="w3-bar-item w3-button w3-padding-large">Inspirational videos</a>
+        </div>
+        <!--.................................code for main body ..................................-->
+
+        <div class="w3-row">
+            <div class="w3-col m3 w3-green w3-center">
+                <br>
+                <p></p>
+            </div>
+            <div class="w3-col m6">
+                <br>
+                <!--................................new post start from here ..............................-->
+                <!--starting of Django for loop for fatching all post-->
+                {% for post in posts %}
+                    <!--........................post model code start from here.....................-->
+                    <div class="w3-section w3-row-padding w3-margin-bottom">
+                        <div class="w3-one w3-center">
+                            <div class="w3-card-4">
+                                <div class="w3-display-container">
+                                   <!--.............................. post image url[imgur.com] insert here ................................-->
+                                    <img src="{{ post.image_url }}" alt="Image_alt_text" style="width:100%">
+                                    <div class="w3-display-bottomleft w3-text-teal">
+                                        <ul class="w3-ul">
+                                            <li class="w3-bar">
+                                                <!--........................user profile image insert....................-->
+                                                <img src="static/Assets/logo.png" class="w3-bar-item w3-circle" style="width:85px">
+                                                <div class="w3-bar-item" style="padding-left: 0px">
+                                                   <!--................. posted by user's Name and username insert here..............-->
+                                                    <span class="w3-large w3-bold">{{ post.user.name }}</span><br>
+                                                    <span class="w3-medium w3-left w3-bold">@{{ post.user.username }}</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--............................post text and other part ...................................-->
+                                <div class="w3-container w3-light-grey">
+                                    <!--..................automatically post caption insert here .......................-->
+                                    <p>{{ post.caption }}</p>
+                                    <p class="smart-txt">2 Nov 2017 02:40:50 Sec</p>
+                                    <p class="w3-bold w3-medium w3-text-teal">10 Likes and 20 Comments</p>
+                                    <ul class="w3-center w3-margin-right">
+                                        <li class="w3-show-inline-block">
+                                            <button class="w3-button w3-margin-right w3-xlarge w3-circle w3-teal"><i class="fa fa-thumbs-up"></i></button>
+                                        </li>
+                                        <li class="w3-show-inline-block">
+                                            <input class="w3-input w3-hover-teal w3-large w3-padding w3-round" type="text" placeholder="Comment Text ..." >
+                                        </li>
+                                        <li class="w3-show-inline-block">
+                                            <button class="w3-button w3-margin-left w3-margin-right w3-xlarge w3-circle w3-teal"><i class="fa fa-comment"></i></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--..................post comment section .......................-->
+                            <ul class="w3-ul w3-card-4">
+                                <li class="w3-bar">
+                                    <img src="static/Assets/logo.png" class="w3-bar-item w3-circle" style="width:85px">
+                                    <div class="w3-bar-item" style="padding-left: 0px;">
+                                        <span class="w3-medium w3-bold">Vivek Kumar</span><br>
+                                        <span class="w3-text-teal w3-large">Wowow Nice One Bro</span>
+                                        <span class="w3-small w3-right"><button class="w3-button w3-margin-left w3-teal"><i class="fa fa-thumbs-up"></i> Upvote</button></span>
+                                    </div>
+                                </li>
+                            </ul>
+                    </div>
+                    <!--end of post Django for loop-->
+                {% endfor %}
+                <!--................................post model code end here..............................-->
+            </div>
+
+
+
+            <!--.........................................code for right side bar .................................-->
+            <div class="w3-col m3 w3-red w3-center">
+                <br>
+
+                <p></p>
+            </div>
+        </div>
+
+
+
+           <!--jquery file linked here-->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <!--W3JS FILE-->
         <script src="/static/JavaScript/w3.js"></script>
@@ -175,5 +248,17 @@
         <!--<script src="https://www.w3schools.com/lib/w3.js"></script>-->
         <!--my js  file-->
         <script src="/static/JavaScript/main.js" type="text/javascript"></script>
+        <script>
+            // Used to toggle the menu on small screens when clicking on the menu button
+            function myFunction() {
+                var x = document.getElementById("navDemo");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else {
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+
+        </script>
     </body>
 </html>

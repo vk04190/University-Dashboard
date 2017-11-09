@@ -167,6 +167,30 @@
             </div>
             <div class="w3-col m6">
                 <br>
+                <!--Code for Show New post On top of main page-->
+                <!--<div class="w3-section w3-row-padding w3-margin-bottom">-->
+                        <!--<div class="w3-one w3-center">-->
+                            <!--<div class="w3-card-4">-->
+                                <!--<div class="w3-display-container">-->
+                                    <!--<h6 class="smart-txt w3-center tri-color {{color}}">{{status}} {{special}}</h6>-->
+
+                                    <!--&lt;!&ndash;UPLOAD NEW POST&ndash;&gt;-->
+                                    <!--<form method="POST" enctype="multipart/form-data">-->
+                                            <!--&lt;!&ndash;CSRF token to accept secure data acts like a seal to all the data that is sent through post requests&ndash;&gt;-->
+                                            <!--{% csrf_token %}-->
+                                            <!--<fieldset class="w3-margin data-field w3-padding w3-center">-->
+                                                <!--<legend class="w3-margin w3-padding smart-txt tri-color" style="text-align: left"> Share your Status Now... </legend>-->
+                                                <!--<input class="data-field w3-padding w3-btn" id = "file" type="file" name="image" placeholder="Upload Quotes Images" value="{{ image }}"><br>-->
+                                                <!--<input class="data-field w3-padding w3-btn" id ="caption" type="text" style="width: 300px; height: 200px;"  name="caption" placeholder="Status Quotes" value="{{ caption }}"><br>-->
+                                                <!--<input class="data-field pri-btn w3-btn" type="submit" value="POST STATUS">-->
+                                            <!--</fieldset>-->
+                                    <!--</form>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                <!--</div>-->
+
+                <br>
                 <!--................................new post start from here ..............................-->
                 <!--starting of Django for loop for fatching all post-->
                 {% for post in posts %}
@@ -195,7 +219,7 @@
                                 <div class="w3-container w3-light-grey">
                                     <!--..................automatically post caption insert here .......................-->
                                     <p>{{ post.caption }}</p>
-                                    <p class="smart-txt">2 Nov 2017 02:40:50 Sec</p>
+                                    <p class="smart-txt">Posted on {{ post.created_on }}</p>
                                     <p class="w3-bold w3-medium w3-text-teal">10 Likes and 20 Comments</p>
                                     <ul class="w3-center w3-margin-right">
                                         <li class="w3-show-inline-block">

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from insta_app.views import signup_view, login_view, feed_view, post_view
+from insta_app.views import signup_view, login_view, feed_view, post_view, like_view, comment_view
 
 
 urlpatterns = [
@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^login', login_view),
     url(r'^home', feed_view),
     url(r'^post', post_view),
+    url('like/', like_view),
+    url('comment/', comment_view),
     # always put signup view at in end
     url('', signup_view)
 ]

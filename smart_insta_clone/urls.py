@@ -20,11 +20,17 @@ from insta_app.views import signup_view, login_view, feed_view, post_view, like_
 
 urlpatterns = [
     url(r'^admin', admin.site.urls),
-    url(r'^login', login_view),
-    url(r'^home', feed_view),
-    url(r'^post', post_view),
+    url('post/', post_view),
+    url('feed/', feed_view),
     url('like/', like_view),
     url('comment/', comment_view),
-    # always put signup view at in end
+    url('login/', login_view),
     url('', signup_view)
+    # url(r'^login', login_view),
+    # url(r'^home', feed_view),
+    # url(r'^post', post_view),
+    # url('like/', like_view),
+    # url('comment/', comment_view),
+    # # always put signup view at in end
+    # url('', signup_view)
 ]

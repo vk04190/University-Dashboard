@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from datetime import datetime
+
 # html pages rendering and redirecting pages
 from django.shortcuts import render, redirect
-from models import UserModel, SessionToken, PostModel, LikeModel
-# import signupform from form.py
-from forms import SignUpForm, SignInForm, PostForm, LikeForm
+# import signup form from form.py
+from forms import SignUpForm, SignInForm, PostForm, LikeForm, CommentForm
 # importing library for password hashing and to check it
+from models import UserModel, SessionToken, PostModel, LikeModel, CommentModel
 from django.contrib.auth.hashers import make_password, check_password
+# for using time zone and time related function
+from datetime import datetime, timedelta
+from django.utils import timezone
+from smart_insta_clone.settings import BASE_DIR
 # to save post on online data store using Imagur API
 from imgurpython import ImgurClient
 # IMGUR client Id and secret
@@ -15,11 +19,9 @@ My_CLIENT_ID = "b3b2ae95c944b54"
 My_CLIENT_SECRET = "f67276a5cad94b2bc5cd7699ba936aab995a579f"
 
 
-# for using time zone and time related function
-from datetime import timedelta
-from django.utils import timezone
 
-from smart_insta_clone.settings import BASE_DIR
+
+
 
 # Create your views here.
 def signup_view(request):
@@ -83,7 +85,7 @@ def login_view(request):
                     token = SessionToken(user=user)
                     token.create_token()
                     token.save()
-                    response = redirect('/home')
+                    response = redirect('feed/')
                     response.set_cookie(key='session_token', value=token.session_token)
                     return response
                 else:
@@ -101,19 +103,6 @@ def login_view(request):
     return render(request, 'login.html', response_data)
 
 
-def feed_view(request):
-    user = check_validation(request)
-    if user:
-        posts = PostModel.objects.all().order_by('-created_on')
-        # for post in posts:
-        #     existing_like = LikeModel.objects.filter(post_id=post.id, user=user).first()
-        #     if existing_like:
-        #         post.has_liked = True
-        return render(request, 'home.html', {'posts': posts})
-    else:
-        return redirect('/login')
-
-
 # For validating the session
 def check_validation(request):
     if request.COOKIES.get('session_token'):
@@ -124,7 +113,7 @@ def check_validation(request):
         return None
 
 
-# post_vew controller
+# post_view controller
 def post_view(request):
     # check wheather user is valid or not
     user = check_validation(request)
@@ -148,13 +137,41 @@ def post_view(request):
                 post.image_url = client.upload_from_path(path, anon=True)['link']
                 post.save()
                 msg = 'New Status "' + caption + '" Updated Successfully. You Can Upload More...'
-                return render(request, 'post.html', {'color': 'w3-green', 'status': msg})
+                return render(request, '/feed/', {'color': 'w3-green', 'status': msg})
             else:
                 msg = 'Input Only Valid Image and Text. Please Try Again ... '
                 return render(request, 'post.html', {'color': 'w3-red', 'status': msg})
 
     else:
         return redirect('/login')
+
+
+# feed view controller
+def feed_view(request):
+    user = check_validation(request)
+    if user:
+        posts = PostModel.objects.all().order_by('created_on')
+        for post in posts:
+            existing_like = LikeModel.objects.filter(post_id=post.id, user=user).first()
+            if existing_like:
+                post.has_liked = True
+
+        return render(request, 'feed.html', {'posts': posts})
+    else:
+        return redirect('/login/')
+
+
+        # def feed_view(request):
+        #     user = check_validation(request)
+        #     if user:
+        #         posts = PostModel.objects.all().order_by('-created_on')
+        #         # for post in posts:
+        #         #     existing_like = LikeModel.objects.filter(post_id=post.id, user=user).first()
+        #         #     if existing_like:
+        #         #         post.has_liked = True
+        #         return render(request, 'home.html', {'posts': posts})
+        #     else:
+        #         return redirect('/login')
 
 
 # like_view controller
@@ -173,6 +190,7 @@ def like_view(request):
             return redirect('/feed/')
     else:
         return redirect('/login/')
+
 
 # Comment_View Controller
 def comment_view(request):

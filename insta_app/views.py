@@ -85,7 +85,7 @@ def login_view(request):
                     token = SessionToken(user=user)
                     token.create_token()
                     token.save()
-                    response = redirect('feed/')
+                    response = redirect('/feed/')
                     response.set_cookie(key='session_token', value=token.session_token)
                     return response
                 else:
@@ -137,13 +137,13 @@ def post_view(request):
                 post.image_url = client.upload_from_path(path, anon=True)['link']
                 post.save()
                 msg = 'New Status "' + caption + '" Updated Successfully. You Can Upload More...'
-                return render(request, '/feed/', {'color': 'w3-green', 'status': msg})
+                return render(request, 'post.html', {'color': 'w3-green', 'status': msg})
             else:
                 msg = 'Input Only Valid Image and Text. Please Try Again ... '
                 return render(request, 'post.html', {'color': 'w3-red', 'status': msg})
 
     else:
-        return redirect('/login')
+        return redirect('/login/')
 
 
 # feed view controller
@@ -159,6 +159,7 @@ def feed_view(request):
         return render(request, 'feed.html', {'posts': posts})
     else:
         return redirect('/login/')
+
 
 
         # def feed_view(request):

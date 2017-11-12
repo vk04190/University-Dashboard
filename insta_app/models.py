@@ -51,6 +51,11 @@ class PostModel(models.Model):
     def like_count(self):
         return len(LikeModel.objects.filter(post=self))
 
+    # Comments Counts
+    @property
+    def comments_count(self):
+        return len(CommentModel.objects.filter(post=self))
+
     # comments show
     @property
     def comments(self):

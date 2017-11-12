@@ -147,7 +147,7 @@
                         <a href="#Seminar" class="w3-bar-item w3-button">Seminar</a>
                     </div>
                 </div>
-                <a href="login.html" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-sign-out"></i> Log Out</a>
+                <a href="/login/" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-sign-out"></i> Log Out</a>
                 <a href="#signin" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-user-circle-o"></i> Vivek Kumar</a>
             </div>
         </div>
@@ -167,6 +167,12 @@
             </div>
             <div class="w3-col m6">
                 <br>
+                <br>
+
+                <a href="/post/">
+                    <button class="w3-btn">New Post</button>
+                </a>
+
                 <!--code for new post-->
                 <!--<form method="post" action="/post/">-->
                     <!--{% csrf_token %}-->
@@ -225,7 +231,7 @@
                                     <!--..................automatically post caption insert here .......................-->
                                     <p>{{ post.caption }}</p>
                                     <p class="smart-txt">Posted on {{ post.created_on }}</p>
-                                    <p class="w3-bold w3-medium w3-text-teal">{ post.like_count() } Likes and 20 Comments</p>
+                                    <p class="w3-bold w3-medium w3-text-teal">{{ post.like_count }} Likes and 20 Comments</p>
                                     <ul class="w3-center w3-margin-right">
                                         <li class="w3-show-inline-block">
                                             <!--Like any post function share like data from here-->

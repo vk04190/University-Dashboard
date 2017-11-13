@@ -1,0 +1,93 @@
+
+body{
+    background: url("/static/Assets/background (34).jpg");
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.cur-txt {
+    font-family: 'Tangerine', cursive;
+}
+            .smart-txt {
+                font-family: 'Roboto', sans-serif;
+            }
+            .post-txt {
+                font-family: 'Fredericka the Great', cursive;
+            }
+            .btn-txt {
+                font-family: 'Bungee Shade', cursive;
+            }
+            .pri-color{
+                /*color: teal;*/
+                color: rgb(0,128,128);
+            }
+            .sec-color{
+                /*darkcyan*/
+                color: rgb(0,139,139);
+            }
+            .tri-color{
+                /*cyan*/
+                color: rgb(0,255,255);
+            }
+            .pri-back{
+                /*color: teal;*/
+                background: rgb(0,128,128);
+            }
+            .sec-back{
+                /*darkcyan*/
+                background: rgb(0,139,139);
+            }
+            .tri-back{
+                /*cyan*/
+                background: rgb(0,255,255);
+            }
+            .mainbody {
+                width: auto;
+                height: auto;
+            }
+            .leftside {
+                float: left;
+                width: 50%;
+                padding: 20px;
+                text-align: center;
+            }
+            .rightside{
+                float: right;
+                width: 50%;
+                padding: 20px;
+                text-align: center;
+            }
+            .Content_wrapper{
+                width: auto;
+                background: white;
+
+            }
+            .pri-btn{
+                border: 2px solid teal;
+                color: teal;
+                background: white;
+                border-radius: 3px;
+                padding: 5px 20px 5px 20px;
+                text-align: center;
+                font-size: 18px;
+                font-family: 'Roboto', sans-serif;
+                text-transform: capitalize;
+                margin-top: 10px;
+            }
+            .pri-btn:hover{
+                color: white;
+                background: teal;
+            }
+            .pri-btn:active{
+                color: black;
+                background: cyan;
+                border: 2px solid black;
+
+            }
+            .data-field{
+                border: 1px solid cyan;
+                border-radius: 2px;
+                background: white;
+                font-family: 'Roboto', sans-serif;
+                padding: 2px 15px 2px 15px;
+                margin-top: 10px;
+            }

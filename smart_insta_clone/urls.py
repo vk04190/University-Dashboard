@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from insta_app.views import signup_view, login_view, feed_view, post_view, like_view, comment_view
+from insta_app.views import signup_view, login_view, feed_view, post_view, like_view, comment_view, logout_view
 
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     url('like/', like_view),
     url('comment/', comment_view),
     url('login/', login_view),
+    url('logout/', logout_view),
     url('', signup_view)
     # url(r'^login', login_view),
     # url(r'^home', feed_view),

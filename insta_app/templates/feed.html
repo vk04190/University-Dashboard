@@ -10,16 +10,17 @@
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
         <!--w3css file-->
         <link rel="stylesheet" href="/static/StyleSheet/w3.css">
-        <link rel="stylesheet" href="w3.css">
+        <link rel="stylesheet" href="static/StyleSheet/w3.css">
         <!--cdn-->
         <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
         <!--Animate css connected-->
         <link rel="stylesheet" href="/static/StyleSheet/animate.css">
-        <link rel="stylesheet" href="animate.css">
+        <link rel="stylesheet" href="static/StyleSheet/animate.css">
         <!--cdn-->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">-->
        <!--main css file-->
         <link rel="stylesheet" href="/static/StyleSheet/Style.css">
+        <link rel="stylesheet" href="static/StyleSheet/Style.css">
         <!--google font used
         font-family: 'Tangerine', cursive;
         font-family: 'Roboto', sans-serif;
@@ -32,100 +33,9 @@
                 background: ghostwhite;
                 overflow: hidden;
             }
-            .cur-txt {
-                font-family: 'Tangerine', cursive;
-            }
-            .smart-txt {
-                font-family: 'Roboto', sans-serif;
-            }
-            .post-txt {
-                font-family: 'Fredericka the Great', cursive;
-            }
-            .btn-txt {
-                font-family: 'Bungee Shade', cursive;
-            }
-            .pri-color{
-                /*color: teal;*/
-                color: rgb(0,128,128);
-            }
-            .sec-color{
-                /*darkcyan*/
-                color: rgb(0,139,139);
-            }
-            .tri-color{
-                /*cyan*/
-                color: rgb(0,255,255);
-            }
-            .pri-back{
-                /*color: teal;*/
-                background: rgb(0,128,128);
-            }
-            .sec-back{
-                /*darkcyan*/
-                background: rgb(0,139,139);
-            }
-            .tri-back{
-                /*cyan*/
-                background: rgb(0,255,255);
-            }
-            .mainbody {
-                width: auto;
-                height: 1080px;
-            }
-            .leftside {
-                float: left;
-                width: 50%;
-                padding: 20px;
-                text-align: center;
-            }
-            .rightside{
-                float: right;
-                width: 50%;
-                padding: 20px;
-                text-align: center;
-            }
-            .Content_wrapper{
-                width: 90%;
-                background: white;
-
-            }
-            .pri-btn{
-                border: 2px solid teal;
-                color: teal;
-                background: white;
-                border-radius: 3px;
-                padding: 5px 20px 5px 20px;
-                text-align: center;
-                font-size: 18px;
-                font-family: 'Roboto', sans-serif;
-                text-transform: capitalize;
-                margin-top: 10px;
-            }
-            .pri-btn:hover{
-                color: white;
-                background: teal;
-            }
-            .pri-btn:active{
-                color: black;
-                background: cyan;
-                border: 2px solid black;
-
-            }
-            .data-field{
-                border: 1px solid cyan;
-                border-radius: 2px;
-                background: white;
-                font-family: 'Roboto', sans-serif;
-                padding: 2px 15px 2px 15px;
-                margin-top: 10px;
-            }
             .w3-bold{
                 font-weight: bold;
             }
-            .w3-bolder{
-                font-weight: bolder;
-            }
-
 
 
         </style>
@@ -148,7 +58,7 @@
                     </div>
                 </div>
                 <a href="/login/" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-sign-out"></i> Log Out</a>
-                <a href="#signin" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-user-circle-o"></i> Vivek Kumar</a>
+                <a href="#signin" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right w3-teal"><i class="fa fa-user-circle-o w3-margin-right"></i> {{ Current_user.name }}</a>
             </div>
         </div>
 
@@ -170,7 +80,7 @@
                 <br>
 
                 <a href="/post/">
-                    <button class="w3-btn">New Post</button>
+                    <button class="w3-btn pri-btn" style="width: 100%"><span class="animated infinite bounceInDown">Create New Post ...</span></button>
                 </a>
 
                 <!--code for new post-->
@@ -216,7 +126,7 @@
                                         <ul class="w3-ul">
                                             <li class="w3-bar">
                                                 <!--........................user profile image insert....................-->
-                                                <img src="static/Assets/logo.png" class="w3-bar-item w3-circle" style="width:85px">
+                                                <img src="/static/Assets/logo.jpg" class="w3-bar-item w3-round" style="width:85px">
                                                 <div class="w3-bar-item" style="padding-left: 0px">
                                                    <!--................. posted by user's Name and username insert here..............-->
                                                     <span class="w3-large w3-bold">{{ post.user.name }}</span><br>
@@ -240,31 +150,34 @@
                                                 <input type="hidden" name="post" value="{{ post.id }}">
                                                 {% if post.has_liked %}
 
-                                                    <input type="submit" class="btn btn-default" value="Unlike">
+                                                    <!--<input type="submit" class="btn btn-default" value="Unlike">-->
+                                                <button class="w3-button w3-margin-right w3-xlarge w3-circle w3-teal" type="submit" value="Unlike"><i class="fa fa-thumbs-down"></i></button>
 
                                                 {% else %}
-
-                                                    <input type="submit" class="btn btn-default" value="Like">
+                                                    <!--<input type="submit" class="btn btn-default" value="Like">-->
+                                                    <button class="w3-button w3-margin-right w3-xlarge w3-circle w3-teal" type="submit" value="like"><i class="fa fa-thumbs-up"></i></button>
 
                                                 {% endif %}
-                                                <!--<input type="submit" class="btn btn-default" value="Like">-->
-                                                <!--<button class="w3-button w3-margin-right w3-xlarge w3-circle w3-teal" type="submit" value="like"><i class="fa fa-thumbs-up"></i></button>-->
                                             </form>
                                         </li>
-                                        <li class="w3-show-inline-block">
-                                            <form method="POST" action="/comment/">
+
+                                        <form method="POST" action="/comment/" class="w3-show-inline-block">
+                                            <li class="w3-show-inline-block">
                                                   {% csrf_token %}
-                                                  <input type="hidden" name="post" value="{{ post.id }}" >
-                                                  <input type="text" name="comment_text" id="comment_text" placeholder="Make a comment.." value="{{ comment_text }}">
+                                                    <input type="hidden" name="post" value="{{ post.id }}" >
+                                                    <!--<input type="text" name="comment_text" id="comment_text" placeholder="Make a comment.." value="{{ comment_text }}">-->
+                                                    <input class="w3-input w3-hover-teal w3-large w3-padding w3-round" name="comment_text" type="text" id="comment_text" placeholder="Write a comment..." value="{{ comment_text }}">
                                                   {{ comment_text }}
-                                                  <input type="submit" class="btn-default btn" value="Comment">
-                                            </form>
-                                            <!--<input class="w3-input w3-hover-teal w3-large w3-padding w3-round" type="text" placeholder="Comment Text ..." >-->
-                                        </li>
-                                        <!--<li class="w3-show-inline-block">-->
-                                            <!--<button class="w3-button w3-margin-left w3-margin-right w3-xlarge w3-circle w3-teal"><i class="fa fa-comment"></i></button>-->
-                                        <!--</li>-->
+                                            </li>
+                                            <li class="w3-show-inline-block">
+
+                                            <!--<input type="submit" class="btn-default btn" value="Comment">-->
+                                            <button class="w3-button w3-margin-left w3-margin-right w3-xlarge w3-circle w3-teal" type="submit" value="Comment"><i class="fa fa-comment"></i></button>
+
+                                            </li>
+                                        </form>
                                     </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -276,15 +189,14 @@
 
                                       {% for comment in post.comments %}
 
-                                        <p>
-                                          {{ comment.user.username }}
-                                          {{ comment.created_on }}: {{ comment.comment_text }}
+                                        <p class="w3-border-bottom">
+                                            <span class="w3-medium w3-bold">{{ comment.user.name }}</span>
+                                            <span class="w3-text-teal w3-margin-left w3-large">{{ comment.comment_text }}</span>
+                                            <!--<span class="w3-small w3-right "><button class="w3-button w3-margin-left w3-teal w3-round"><i class="fa fa-thumbs-up"></i> Upvote</button></span>-->
+                                            <br><span class="w3-small">{{ comment.created_on }}</span>
                                         </p>
 
                                       {% endfor %}
-                                        <!--<span class="w3-medium w3-bold">Vivek Kumar</span><br>-->
-                                        <!--<span class="w3-text-teal w3-large">Wowow Nice One Bro</span>-->
-                                        <!--<span class="w3-small w3-right"><button class="w3-button w3-margin-left w3-teal"><i class="fa fa-thumbs-up"></i> Upvote</button></span>-->
                                     </div>
                                 </li>
                             </ul>

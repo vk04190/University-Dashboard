@@ -58,11 +58,11 @@ def signup_view(request):
         else:
             form = SignUpForm()
             error = 'Sign Up Details are Not Valid. Please Try Again ...'
-            return render(request, 'index.html', { 'form': form, 'color': 'w3-red', 'status': error})
+            return render(request, 'index.html', {'form': form, 'color': 'w3-red', 'status': error})
     elif request.method == 'GET':
         form = SignUpForm()
         daily = datetime.now()
-        return render(request, 'index.html', {'form': form, 'color': 'w3-green', 'status': 'Welcome to Inspire Me. Today is', 'special': daily})
+        return render(request, 'index.html', {'form': form, 'color': 'w3-green', 'status': 'Welcome to RIMT University. Today is', 'special': daily})
 
 
 def login_view(request):
@@ -96,6 +96,13 @@ def login_view(request):
         form = SignInForm()
     response_data['form'] = form
     return render(request, 'login.html', response_data)
+
+
+# LogOut View
+def logout_view(request):
+    response = redirect('/login/')
+    response.delete_cookie(key='session_token', value=token.session_token)
+    return response
 
 
 # For validating the session
@@ -145,29 +152,15 @@ def post_view(request):
 def feed_view(request):
     user = check_validation(request)
     if user:
-        posts = PostModel.objects.all().order_by('created_on')
+        posts = PostModel.objects.all().order_by('-created_on')
         for post in posts:
             existing_like = LikeModel.objects.filter(post_id=post.id, user=user).first()
             if existing_like:
                 post.has_liked = True
 
-        return render(request, 'feed.html', {'posts': posts})
+        return render(request, 'feed.html', {'Current_user': user, 'posts': posts})
     else:
         return redirect('/login/')
-
-
-
-        # def feed_view(request):
-        #     user = check_validation(request)
-        #     if user:
-        #         posts = PostModel.objects.all().order_by('-created_on')
-        #         # for post in posts:
-        #         #     existing_like = LikeModel.objects.filter(post_id=post.id, user=user).first()
-        #         #     if existing_like:
-        #         #         post.has_liked = True
-        #         return render(request, 'home.html', {'posts': posts})
-        #     else:
-        #         return redirect('/login')
 
 
 # like_view controller

@@ -1,297 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="shortcut icon" href="/static/Assets/logo.jpg" type="image/x-icon"/>
-        <title>Life at RIMT</title>
-        <!--font-awsome linked here-->
-        <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
-        <!--cdn-->
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-        <!--w3css file-->
-        <link rel="stylesheet" href="/static/StyleSheet/w3.css">
-        <link rel="stylesheet" href="static/StyleSheet/w3.css">
-        <!--cdn-->
-        <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
-        <!--Animate css connected-->
-        <link rel="stylesheet" href="/static/StyleSheet/animate.css">
-        <link rel="stylesheet" href="static/StyleSheet/animate.css">
-        <!--cdn-->
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">-->
-       <!--main css file-->
-        <link rel="stylesheet" href="/static/StyleSheet/Style.css">
-        <link rel="stylesheet" href="static/StyleSheet/Style.css">
-        <!--google font used
-        font-family: 'Tangerine', cursive;
-        font-family: 'Roboto', sans-serif;
-        font-family: 'Fredericka the Great', cursive;
-        font-family: 'Bungee Shade', cursive;
-        -->
-        <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Fredericka+the+Great|Roboto|Tangerine" rel="stylesheet">
-        <style>
-            body{
-                background: ghostwhite;
-                overflow: hidden;
-            }
-            .w3-bold{
-                font-weight: bold;
-            }
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
 
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logo</a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
+      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="/w3images/avatar2.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
+ </div>
+</div>
 
-        </style>
-    </head>
-    <body>
-    <!--...............................code for header ...........................................-->
-        <!-- Navbar -->
-        <div class="w3-top">
-            <div class="w3-bar w3-teal w3-card">
-                <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-                <a href="#" class="w3-bar-item w3-button w3-padding-large">Inspire Me</a>
-                <a href="#Quotes" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Popular Quotes</a>
-                <a href="#videos" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Inspirational videos</a>
-                <div class="w3-dropdown-hover w3-hide-small">
-                    <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
-                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                        <a href="#Events" class="w3-bar-item w3-button">Upcoming Events</a>
-                        <a href="#Webinars" class="w3-bar-item w3-button">Webinars</a>
-                        <a href="#Seminar" class="w3-bar-item w3-button">Seminar</a>
-                    </div>
-                </div>
-                <a href="/login/" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-sign-out"></i> Log Out</a>
-                <a href="#signin" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right w3-teal"><i class="fa fa-user-circle-o w3-margin-right"></i> {{ Current_user.name }}</a>
-            </div>
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white">
+        <div class="w3-container">
+         <h4 class="w3-center">My Profile</h4>
+         <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
         </div>
-
-        <!-- Navbar on small screens -->
-        <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-            <a href="#home" class="w3-bar-item w3-button w3-padding-large">Inspire Me</a>
-            <a href="#Quotes" class="w3-bar-item w3-button w3-padding-large">Popular Quotes</a>
-            <a href="#videos" class="w3-bar-item w3-button w3-padding-large">Inspirational videos</a>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/fjords.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>      
+      </div>
+      <br>
+      
+      <!-- Interests --> 
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Interests</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">News</span>
+            <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+            <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+            <span class="w3-tag w3-small w3-theme-d2">Games</span>
+            <span class="w3-tag w3-small w3-theme-d1">Friends</span>
+            <span class="w3-tag w3-small w3-theme">Games</span>
+            <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+            <span class="w3-tag w3-small w3-theme-l2">Food</span>
+            <span class="w3-tag w3-small w3-theme-l3">Design</span>
+            <span class="w3-tag w3-small w3-theme-l4">Art</span>
+            <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+          </p>
         </div>
-        <!--.................................code for main body ..................................-->
-
-        <div class="w3-row">
-            <div class="w3-col m3 w3-green w3-center">
-                <br>
-                <p></p>
+      </div>
+      <br>
+      
+      <!-- Alert Box -->
+      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+          <i class="fa fa-remove"></i>
+        </span>
+        <p><strong>Hey!</strong></p>
+        <p>People are looking at your profile. Find out who.</p>
+      </div>
+    
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-white">
+            <div class="w3-container w3-padding">
+              <h6 class="w3-opacity">Social Media template by w3.css</h6>
+              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
             </div>
-            <div class="w3-col m6">
-                <br>
-                <br>
-
-                <a href="/post/">
-                    <button class="w3-btn pri-btn" style="width: 100%"><span class="animated infinite bounceInDown">Create New Post ...</span></button>
-                </a>
-
-                <!--code for new post-->
-                <!--<form method="post" action="/post/">-->
-                    <!--{% csrf_token %}-->
-                    <!--<input type="submit" class="btn-default btn" value="Create Post">-->
-                <!--</form>-->
-                <!--Code for Show New post On top of main page-->
-                <!--<div class="w3-section w3-row-padding w3-margin-bottom">-->
-                        <!--<div class="w3-one w3-center">-->
-                            <!--<div class="w3-card-4">-->
-                                <!--<div class="w3-display-container">-->
-                                    <!--<h6 class="smart-txt w3-center tri-color {{color}}">{{status}} {{special}}</h6>-->
-
-                                    <!--&lt;!&ndash;UPLOAD NEW POST&ndash;&gt;-->
-                                    <!--<form method="POST" enctype="multipart/form-data">-->
-                                            <!--&lt;!&ndash;CSRF token to accept secure data acts like a seal to all the data that is sent through post requests&ndash;&gt;-->
-                                            <!--{% csrf_token %}-->
-                                            <!--<fieldset class="w3-margin data-field w3-padding w3-center">-->
-                                                <!--<legend class="w3-margin w3-padding smart-txt tri-color" style="text-align: left"> Share your Status Now... </legend>-->
-                                                <!--<input class="data-field w3-padding w3-btn" id = "file" type="file" name="image" placeholder="Upload Quotes Images" value="{{ image }}"><br>-->
-                                                <!--<input class="data-field w3-padding w3-btn" id ="caption" type="text" style="width: 300px; height: 200px;"  name="caption" placeholder="Status Quotes" value="{{ caption }}"><br>-->
-                                                <!--<input class="data-field pri-btn w3-btn" type="submit" value="POST STATUS">-->
-                                            <!--</fieldset>-->
-                                    <!--</form>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                <!--</div>-->
-
-                <br>
-                <!--................................new post start from here ..............................-->
-                <!--starting of Django for loop for fatching all post-->
-                {% for post in posts %}
-                    <!--........................post model code start from here.....................-->
-                    <div class="w3-section w3-row-padding w3-margin-bottom">
-                        <div class="w3-one w3-center">
-                            <div class="w3-card-4">
-                                <div class="w3-display-container">
-                                   <!--.............................. post image url[imgur.com] insert here ................................-->
-                                    <img src="{{ post.image_url }}" alt="Image_alt_text" style="width:100%">
-                                    <div class="w3-display-bottomleft w3-text-teal" style="background: rgba(255,255,255, 0.3); border-top-right-radius: 10px; ">
-                                        <ul class="w3-ul">
-                                            <li class="w3-bar">
-                                                <!--........................user profile image insert....................-->
-                                                <img src="/static/Assets/logo.jpg" class="w3-bar-item w3-round" style="width:85px">
-                                                <div class="w3-bar-item" style="padding-left: 0px">
-                                                   <!--................. posted by user's Name and username insert here..............-->
-                                                    <span class="w3-large w3-bold">{{ post.user.name }}</span><br>
-                                                    <span class="w3-medium w3-left w3-bold">@{{ post.user.username }}</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--............................post text and other part ...................................-->
-                                <div class="w3-container w3-light-grey">
-                                    <!--..................automatically post caption insert here .......................-->
-                                    <p>{{ post.caption }}</p>
-                                    <p class="smart-txt">Posted on {{ post.created_on }}</p>
-                                    <p class="w3-bold w3-medium w3-text-teal">{{ post.like_count }} Likes and {{ post.comments_count }} Comments</p>
-                                    <ul class="w3-center w3-margin-right">
-                                        <li class="w3-show-inline-block">
-                                            <!--Like any post function share like data from here-->
-                                            <form method="POST" action="/like/">
-                                                {% csrf_token %}
-                                                <input type="hidden" name="post" value="{{ post.id }}">
-                                                {% if post.has_liked %}
-
-                                                    <!--<input type="submit" class="btn btn-default" value="Unlike">-->
-                                                <button class="w3-button w3-margin-right w3-xlarge w3-circle w3-teal" type="submit" value="Unlike"><i class="fa fa-thumbs-down"></i></button>
-
-                                                {% else %}
-                                                    <!--<input type="submit" class="btn btn-default" value="Like">-->
-                                                    <button class="w3-button w3-margin-right w3-xlarge w3-circle w3-teal" type="submit" value="like"><i class="fa fa-thumbs-up"></i></button>
-
-                                                {% endif %}
-                                            </form>
-                                        </li>
-
-                                        <form method="POST" action="/comment/" class="w3-show-inline-block">
-                                            <li class="w3-show-inline-block">
-                                                  {% csrf_token %}
-                                                    <input type="hidden" name="post" value="{{ post.id }}" >
-                                                    <!--<input type="text" name="comment_text" id="comment_text" placeholder="Make a comment.." value="{{ comment_text }}">-->
-                                                    <input class="w3-input w3-hover-teal w3-large w3-padding w3-round" name="comment_text" type="text" id="comment_text" placeholder="Write a comment..." value="{{ comment_text }}">
-                                                  {{ comment_text }}
-                                            </li>
-                                            <li class="w3-show-inline-block">
-
-                                            <!--<input type="submit" class="btn-default btn" value="Comment">-->
-                                            <button class="w3-button w3-margin-left w3-margin-right w3-xlarge w3-circle w3-teal" type="submit" value="Comment"><i class="fa fa-comment"></i></button>
-
-                                            </li>
-                                        </form>
-                                    </ul>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!--..................post comment section .......................-->
-                            <ul class="w3-ul w3-card-4">
-                                <li class="w3-bar">
-                                    <img src="static/Assets/logo.png" class="w3-bar-item w3-circle" style="width:85px">
-                                    <div class="w3-bar-item" style="padding-left: 0px;">
-
-                                      {% for comment in post.comments %}
-
-                                        <p class="w3-border-bottom">
-                                            <span class="w3-medium w3-bold">{{ comment.user.name }}</span>
-                                            <span class="w3-text-teal w3-margin-left w3-large">{{ comment.comment_text }}</span>
-                                            <!--<span class="w3-small w3-right "><button class="w3-button w3-margin-left w3-teal w3-round"><i class="fa fa-thumbs-up"></i> Upvote</button></span>-->
-                                            <br><span class="w3-small">{{ comment.created_on }}</span>
-                                        </p>
-
-                                      {% endfor %}
-                                    </div>
-                                </li>
-                            </ul>
-                    </div>
-                    <!--end of post Django for loop-->
-                {% endfor %}
-                <!--................................post model code end here..............................-->
-            </div>
-
-
-
-            <!--.........................................code for right side bar .................................-->
-            <div class="w3-col m3 w3-center w3-padding" style="position: fixed; top: 50px; left: 1125px;">
-                <button class="w3-btn w3-padding w3-teal" style="width: 100%"><span class="animated flip">Upcomming Events</span></button>
-                <div class="w3-content w3-card-4 w3-display-container">
-                    <div class="w3-display-container mySlides">
-                        <img src="https://i.imgur.com/jGfx7Jf.jpg" style="width:100%">
-                        <div class="w3-display-bottomleft w3-large w3-container w3-padding-16 w3-black">
-                            Trolltunga, Norway
-                        </div>
-                    </div>
-
-                    <div class="w3-display-container mySlides">
-                        <img src="https://i.imgur.com/icgSGTk.jpg" style="width:100%">
-                        <div class="w3-display-bottomright w3-large w3-container w3-padding-16 w3-black">
-                            Northern Lights, Norway
-                        </div>
-                    </div>
-
-                    <div class="w3-display-container mySlides">
-                      <img src="https://i.imgur.com/J05MSL3.jpg" style="width:100%">
-                      <div class="w3-display-topleft w3-large w3-container w3-padding-16 w3-black">
-                        Beautiful Mountains
-                      </div>
-                    </div>
-
-                    <div class="w3-display-container mySlides">
-                      <img src="https://i.imgur.com/J05MSL3.jpg" style="width:100%">
-                      <div class="w3-display-topright w3-large w3-container w3-padding-16 w3-black">
-                        The Rain Forest
-                      </div>
-                    </div>
-
-                    <div class="w3-display-container mySlides">
-                      <img src="https://i.imgur.com/jCmPP6r.jpg" style="width:100%">
-                      <div class="w3-display-middle w3-large w3-container w3-padding-16 w3-black">
-                        Mountains!
-                      </div>
-                    </div>
-                    <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-                    <button class="w3-button w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-                </div>
-                <p></p>
-            </div>
+          </div>
         </div>
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 min</span>
+        <h4>John Doe</h4><br>
+        <hr class="w3-clear">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+              <img src="/w3images/lights.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            </div>
+            <div class="w3-half">
+              <img src="/w3images/nature.jpg" style="width:100%" alt="Nature" class="w3-margin-bottom">
+          </div>
+        </div>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">16 min</span>
+        <h4>Jane Doe</h4><br>
+        <hr class="w3-clear">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div>  
 
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">32 min</span>
+        <h4>Angie Jane</h4><br>
+        <hr class="w3-clear">
+        <p>Have you seen this?</p>
+        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+      </div> 
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;">
+          <p><strong>Holiday</strong></p>
+          <p>Friday 15:00</p>
+          <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Friend Request</p>
+          <img src="/w3images/avatar6.png" alt="Avatar" style="width:50%"><br>
+          <span>Jane Doe</span>
+          <div class="w3-row w3-opacity">
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-green w3-section" title="Accept"><i class="fa fa-check"></i></button>
+            </div>
+            <div class="w3-half">
+              <button class="w3-button w3-block w3-red w3-section" title="Decline"><i class="fa fa-remove"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-padding-16 w3-center">
+        <p>ADS</p>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-padding-32 w3-center">
+        <p><i class="fa fa-bug w3-xxlarge"></i></p>
+      </div>
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
 
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>Footer</h5>
+</footer>
 
-           <!--jquery file linked here-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <!--W3JS FILE-->
-        <script src="/static/JavaScript/w3.js"></script>
-        <!--cdn-->
-        <!--<script src="https://www.w3schools.com/lib/w3.js"></script>-->
-        <!--my js  file-->
-        <script src="/static/JavaScript/main.js" type="text/javascript"></script>
-        <script>
-            // Used to toggle the menu on small screens when clicking on the menu button
-            function myFunction() {
-                var x = document.getElementById("navDemo");
-                if (x.className.indexOf("w3-show") == -1) {
-                    x.className += " w3-show";
-                } else {
-                    x.className = x.className.replace(" w3-show", "");
-                }
-            }
+<footer class="w3-container w3-theme-d5">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+ 
+<script>
+// Accordion
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+    } else { 
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-theme-d1", "");
+    }
+}
 
-//            javascript code for Events slides
-            var slideIndex = 1;
-            showDivs(slideIndex);
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
 
-            function plusDivs(n) {
-              showDivs(slideIndex += n);
-            }
-
-            function showDivs(n) {
-              var i;
-              var x = document.getElementsByClassName("mySlides");
-              if (n > x.length) {slideIndex = 1}
-              if (n < 1) {slideIndex = x.length}
-              for (i = 0; i < x.length; i++) {
-                 x[i].style.display = "none";
-              }
-              x[slideIndex-1].style.display = "block";
-            }
-        </script>
-    </body>
-</html>
+</body>
+</html> 

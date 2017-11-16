@@ -1,6 +1,6 @@
 
 body{
-    background: url("/static/Assets/background (34).jpg");
+    background: url("/static/Assets/background (34).jpg") fixed;
     overflow-y: hidden;
     overflow-x: hidden;
 }

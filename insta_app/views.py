@@ -151,6 +151,7 @@ def post_view(request):
 # feed view controller
 def feed_view(request):
     user = check_validation(request)
+    daily = datetime.now()
     if user:
         posts = PostModel.objects.all().order_by('-created_on')
         for post in posts:
@@ -158,7 +159,7 @@ def feed_view(request):
             if existing_like:
                 post.has_liked = True
 
-        return render(request, 'feed.html', {'Current_user': user, 'posts': posts})
+        return render(request, 'feed.html', {'Current_user': user, 'posts': posts, 'time': daily })
     else:
         return redirect('/login/')
 

@@ -81,7 +81,7 @@ html,body,h1,h2,h3,h4,h5 {
     <div class="w3-col m3">
       <!-- Profile -->
         <div style="position: fixed; top: 65px; width:335px;">
-            <div class="w3-card w3-round w3-white" >
+            <div class="w3-card w3-round w3-white animated rollIn" >
         <div class="w3-container">
          <h4 class="w3-center">{{ Current_user.name }}</h4>
          <p class="w3-center"><img src="/static/Assets/img.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
@@ -95,7 +95,7 @@ html,body,h1,h2,h3,h4,h5 {
       <br>
 
       <!-- Accordion -->
-      <div class="w3-card w3-round" style="margin-top: -10px;">
+      <div class="w3-card w3-round animated fadeInLeftBig" style="margin-top: -10px;">
         <div class="w3-white">
           <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-dashboard fa-fw w3-margin-right"></i> Dashboard</button>
           <!--<div id="Demo1" class="w3-hide w3-container">-->
@@ -108,7 +108,7 @@ html,body,h1,h2,h3,h4,h5 {
       <br>
 
       <!-- Interests --> 
-      <div class="w3-card w3-white w3-hide-small" style="margin-top: -25px;">
+      <div class="w3-card w3-white w3-hide-small animated zoomIn" style="margin-top: -25px;">
                 <div class="w3-content w3-card-4 w3-display-container w3-round">
                     <div class="w3-display-container mySlides w3-hover-grayscale">
                         <p class="w3-medium w3-padding-large w3-text-white w3-teal w3-center" style="margin-bottom: -10px;">Science Fest</p>
@@ -142,13 +142,13 @@ html,body,h1,h2,h3,h4,h5 {
     <!-- Middle Column -->
     <div class="w3-col m7" style="margin-top: -15px; position: relative; margin-left: 345px">
             <a href="/post/">
-                    <button class="w3-btn pri-btn" style="width: 100%"><span class="animated infinite bounceInDown"><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Create New Post ...</span></button>
+                    <button class="w3-btn pri-btn" style="width: 100%"><span class="animated infinite bounceInDown "><i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Create New Post ...</span></button>
                 </a>
        <!--................................new post start from here ..............................-->
                 <!--starting of Django for loop for fatching all post-->
                 {% for post in posts %}
                     <!--........................post model code start from here.....................-->
-                    <div class="w3-section w3-row-padding ">
+                    <div class="w3-section w3-row-padding animated bounceInUp">
                         <div class="w3-one w3-center">
                             <div class="w3-card-4 ">
                                 <div class="w3-display-container">
@@ -246,7 +246,7 @@ html,body,h1,h2,h3,h4,h5 {
     
     <!-- Right Column -->
     <div class="w3-col m2" style="position: fixed; right: 20px; top: 65px; width:195px;">
-      <div class="w3-card w3-round w3-white w3-center">
+      <div class="w3-card w3-round w3-white w3-center animated tada">
         <div class="w3-container">
           <p>Upcoming Events:</p>
           <img src="https://i.imgur.com/icgSGTk.jpg" alt="Forest" style="width:100%;">
@@ -256,7 +256,7 @@ html,body,h1,h2,h3,h4,h5 {
       </div>
       <br>
       
-      <div class="w3-card w3-round w3-white w3-center w3-padding" style="margin-top: -10px;">
+      <div class="w3-card w3-round w3-white w3-center w3-padding animated swing" style="margin-top: -10px;">
         <div class="w3-container w3-medium">
             <span><strong class="w3-text-teal">Submission Pending</strong></span><br>
           <span> 2 Assignments</span><br>

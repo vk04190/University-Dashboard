@@ -39,11 +39,7 @@
 html,body,h1,h2,h3,h4,h5 {
     font-family: "Open Sans", sans-serif
 }
-.sidebarfix{
-    position: absolute;
-    top: 48px;
-    height: 600px;
-    }
+
 </style>
 <body class="w3-theme-l5">
 
@@ -63,7 +59,9 @@ html,body,h1,h2,h3,h4,h5 {
       <a href="localhost:8069" class="w3-bar-item w3-button">Tomorrow Meeting</a>
     </div>
   </div>
+     <a href="/login/" class="w3-padding-large w3-hover-red w3-hide-small w3-button w3-right"><i class="fa fa-sign-out"></i> Log Out</a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="/static/Assets/img.png" class="w3-circle" style="height:25px;width:25px" alt="Avatar"></a>
+
  </div>
 </div>
 
@@ -173,9 +171,9 @@ html,body,h1,h2,h3,h4,h5 {
                                 <!--............................post text and other part ...................................-->
                                 <div class="w3-container w3-light-grey">
                                     <!--..................automatically post caption insert here .......................-->
-                                    <p>{{ post.caption }}</p>
+                                    <p class="w3-large" style="font-family: Roboto;">{{ post.caption }}</p>
                                     <p class="smart-txt">Posted on {{ post.created_on }}</p>
-                                    <p class="w3-bold w3-medium w3-text-teal">{{ post.like_count }} Likes and {{ post.comments_count }} Comments</p>
+                                    <p class="w3-bold w3-medium w3-text-teal"><strong>{{ post.like_count }} Likes and {{ post.comments_count }} Comments</strong></p>
                                     <ul class="w3-center w3-margin-right">
                                         <li class="w3-show-inline-block">
                                             <!--Like any post function share like data from here-->

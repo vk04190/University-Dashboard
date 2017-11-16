@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="/static/Assets/logo.png" type="image/x-icon"/>
+        <title>Inspire Me - Powerful Inspiration Daily</title>
+        <!--font-awsome linked here-->
+        <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--cdn-->
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+        <!--w3css file-->
+        <link rel="stylesheet" href="/static/StyleSheet/w3.css">
+        <!--for testing webpages without server-->
+        <link rel="stylesheet" href="w3.css">
+        <!--cdn-->
+        <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+        <!--Animate css connected-->
+        <link rel="stylesheet" href="/static/StyleSheet/animate.css">
+        <!--for testing webpages-->
+        <link rel="stylesheet" href="animate.css">
+        <!--cdn-->
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">-->
+       <!--main css file-->
+        <link rel="stylesheet" href="/static/StyleSheet/Style.css">
+        <!--google font used
+        font-family: 'Tangerine', cursive;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Fredericka the Great', cursive;
+        font-family: 'Bungee Shade', cursive;
+        -->
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Fredericka+the+Great|Roboto|Tangerine" rel="stylesheet">
+        <style>
+            body{
+                background: ghostwhite;
+                overflow: hidden;
+            }
+            .cur-txt {
+                font-family: 'Tangerine', cursive;
+            }
+            .smart-txt {
+                font-family: 'Roboto', sans-serif;
+            }
+            .post-txt {
+                font-family: 'Fredericka the Great', cursive;
+                text-transform: uppercase;
+            }
+            .btn-txt {
+                font-family: 'Bungee Shade', cursive;
+            }
+            .pri-color{
+                /*color: teal;*/
+                color: rgb(0,128,128);
+            }
+            .sec-color{
+                /*darkcyan*/
+                color: rgb(0,139,139);
+            }
+            .tri-color{
+                /*cyan*/
+                color: rgb(0,255,255);
+            }
+            .pri-back{
+                /*color: teal;*/
+                background: rgb(0,128,128);
+            }
+            .sec-back{
+                /*darkcyan*/
+                background: rgb(0,139,139);
+            }
+            .tri-back{
+                /*cyan*/
+                background: rgb(0,255,255);
+            }
+            .mainbody {
+                width: auto;
+                height: 1080px;
+            }
+            .leftside {
+                float: left;
+                width: 50%;
+                padding: 20px;
+                text-align: center;
+            }
+            .rightside{
+                float: right;
+                width: 50%;
+                padding: 20px;
+                text-align: center;
+            }
+            .Content_wrapper{
+                width: 80%;
+                border: 1px solid cyan;
+                background: white;
+
+            }
+            .pri-btn{
+                border: 2px solid teal;
+                color: teal;
+                padding: 2px 15px 2px 15px;
+                text-align: center;
+                font-size: 18px;
+                text-transform: capitalize;
+                margin-top: 10px;
+            }
+            .pri-btn:hover{
+                color: white;
+                background: teal;
+            }
+            .pri-btn:active{
+                color: black;
+                background: cyan;
+                border: 2px solid black;
+
+            }
+            .data-field{
+                border: 1px solid cyan;
+                background: white;
+                padding: 2px 15px 2px 15px;
+                margin-top: 10px;
+            }
+            .line{
+                border-top: 1px solid teal;
+                width: auto;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainbody">
+            <br>
+                <br>
+
+                <a href="/feed/">
+                    <button class="w3-btn">New Post</button>
+                </a>
+            <h1 class="post-txt w3-center w3-xxxlarge tri-color">Inspire Me</h1>
+            <h6 class="smart-txt w3-center w3-medium w3-margin w3-padding tri-color w3-round {{color}}">{{status}} {{special}}</h6>
+
+                <!--UPLOAD NEW POST-->
+                <form method="POST" enctype="multipart/form-data">
+                        <!--CSRF token to accept secure data acts like a seal to all the data that is sent through post requests-->
+                        {% csrf_token %}
+                        <fieldset class="w3-margin data-field w3-padding w3-center">
+                            <legend class="w3-margin w3-padding smart-txt tri-color" style="text-align: left"> Share your Status Now... </legend>
+                            <input class="data-field w3-padding w3-btn" id = "file" type="file" name="image" placeholder="Upload Quotes Images" value="{{ image }}"><br>
+                            <input class="data-field w3-padding w3-btn" id ="caption" type="text" style="width: 300px; height: 200px;"  name="caption" placeholder="Status Quotes" value="{{ caption }}"><br>
+                            <input class="data-field pri-btn w3-btn" type="submit" value="POST STATUS">
+                        </fieldset>
+                </form>
+                <div class="w3-col-6">
+                    <div class="w3-content w3-display-container">
+                        <img class="mySlides " src="/static/Assets/quotes%20(1).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(2).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(3).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(4).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(5).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(6).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(7).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(8).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(9).jpg" style="width:100%">
+                        <img class="mySlides" src="/static/Assets/quotes%20(10).jpg" style="width:100%">
+                        <script>
+                            var slideIndex = 0;
+                            carousel();
+
+                            function carousel() {
+                                var i;
+                                var x = document.getElementsByClassName("mySlides");
+                                for (i = 0; i < x.length; i++) {
+                                    x[i].style.display = "none";
+                                }
+                                slideIndex++;
+                                if (slideIndex > x.length) {slideIndex = 1}
+                                x[slideIndex-1].style.display = "block";
+                                setTimeout(carousel, 2000); // Change image every 2 seconds
+                            }
+                        </script>
+                    </div>
+                </div>
+        </div>
+        <!--jquery file linked here-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!--W3JS FILE-->
+        <script src="/static/JavaScript/w3.js"></script>
+        <!--cdn-->
+        <!--<script src="https://www.w3schools.com/lib/w3.js"></script>-->
+        <!--my js  file-->
+        <script src="/static/JavaScript/main.js" type="text/javascript"></script>
+    </body>
+</html>

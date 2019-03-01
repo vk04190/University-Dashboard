@@ -26,7 +26,7 @@ SECRET_KEY = 'vhf6wf#a+%o&+10%$rs866h_!0a_f6wc#vi81ar*ukzzk*nxbv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vk04190.pythonanywhere.com']
 
 
 # Application definition
@@ -129,3 +129,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = '/home/vk04190/University-Dashboard/static'
